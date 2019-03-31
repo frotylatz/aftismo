@@ -23,6 +23,8 @@ import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
+import com.facebook.accountkit.ui.ThemeUIManager;
+import com.facebook.accountkit.ui.UIManager;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         mService = Common.getApi();
 
+
         btnContinue = findViewById(R.id.btnContinue);
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if(AccountKit.getCurrentAccessToken() != null){
+        /*if(AccountKit.getCurrentAccessToken() != null){
             final android.app.AlertDialog alertDialog = new SpotsDialog(MainActivity.this);
             alertDialog.show();
             alertDialog.setMessage("Please wait...");
@@ -112,14 +115,16 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("ERROR", accountKitError.getErrorType().getMessage());
                 }
             });
-        }
+        }*/
     }
 
     private void startLoginPage(LoginType phone) {
         Intent intent = new Intent(this, AccountKitActivity.class);
+        UIManager uiManager = new ThemeUIManager(R.style.LoginTheme);
         AccountKitConfiguration.AccountKitConfigurationBuilder builder =
                 new AccountKitConfiguration.AccountKitConfigurationBuilder(phone,
                         AccountKitActivity.ResponseType.TOKEN);
+        builder.setUIManager(uiManager);
         intent.putExtra(AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION, builder.build());
         startActivityForResult(intent,REQUEST_CODE);
     }
