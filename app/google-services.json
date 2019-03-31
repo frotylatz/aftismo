@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "4210342715",
+    "firebase_url": "https://aftismo-d303e.firebaseio.com",
+    "project_id": "aftismo-d303e",
+    "storage_bucket": "aftismo-d303e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4210342715:android:be7348edbedce825",
+        "android_client_info": {
+          "package_name": "unpad.aftismo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4210342715-8l6355noc90tsu9226lnl1cdg189cgue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "unpad.aftismo",
+            "certificate_hash": "bcff50f4bbcd958379a078af49dd7f2ae7e76c0f"
+          }
+        },
+        {
+          "client_id": "4210342715-f1n260nablftdhfaemia0sq7kq5rfjtv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs6l8_kA-JlMK5baZ-1kXAIXVeeQd1sDY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4210342715-f1n260nablftdhfaemia0sq7kq5rfjtv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
