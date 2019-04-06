@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*if(AccountKit.getCurrentAccessToken() != null){
+        if(AccountKit.getCurrentAccessToken() != null){
             final android.app.AlertDialog alertDialog = new SpotsDialog(MainActivity.this);
             alertDialog.show();
             alertDialog.setMessage("Please wait...");
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("ERROR", accountKitError.getErrorType().getMessage());
                 }
             });
-        }*/
+        }
     }
 
     private void startLoginPage(LoginType phone) {
@@ -163,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
                                                             public void onResponse(Call<User> call, Response<User> response) {
                                                                 //if User already exist, just start new activity
                                                                 alertDialog.dismiss();
+
+                                                                Common.currentUser = response.body();
+
                                                                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                                                 finish();
                                                             }

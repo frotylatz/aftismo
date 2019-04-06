@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:elevation="16dp"
+    app:contentPadding="12dp"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="#fff">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imgTutor"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/namaTutor"
+            android:layout_toRightOf="@id/imgTutor"
+            android:text="Malik Zulfikar Gantina"
+            android:textColor="@color/colorPrimaryText"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lokasiTutor"
+            android:layout_toRightOf="@id/imgTutor"
+            android:layout_below="@id/namaTutor"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Pondok Kopi"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/hargaTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_below="@id/imgTutor"
+            android:text="Rp 250.000 / jam"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/sourcesanspro_regular"/>
+
+        <Button
+            android:background="@drawable/mybutton"
+            android:layout_width="73dp"
+            android:layout_height="21dp"
+            android:layout_alignParentRight="true"
+            android:textSize="12sp"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:textColor="#fff"
+            android:text="Booking"
+            android:layout_alignBottom="@id/hargaTutor"
+            android:elevation="8dp"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

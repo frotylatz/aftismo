@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/D:/Program%20Files%20(x86)/Android/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_forward_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/D:/Program%20Files%20(x86)/Android/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_back_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,13 +33,10 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="color" value="00b894" />
-                            <entry key="height" value="81" />
-                            <entry key="outputName" value="assetsplashscreen" />
+                            <entry key="color" value="7d7d7d" />
+                            <entry key="outputName" value="ic_arrow_back" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\UNPAD\Materi\Semester 6\PPL\Project\app\src\main\res\drawable\assetss.svg" />
-                            <entry key="width" value="78" />
+                            <entry key="sourceFile" value="D:\UNPAD\Materi\Semester 6\PPL\Project\app\src\main\res\drawable\ic_loc.svg" />
                           </map>
                         </option>
                       </PersistentState>

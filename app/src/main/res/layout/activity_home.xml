@@ -1,9 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f2f2f2"
     tools:context=".HomeActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="#fff">
+
+                <TextView
+                    android:id="@+id/tvToolbar"
+                    android:text="aftismo+"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginRight="15dp"
+                    android:paddingTop="14dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lifesavers_bold"
+                    android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/navigation">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tvTutor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Butuh tutor?"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:layout_marginLeft="8dp"/>
+
+                <ImageView
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvTutor"
+                    android:id="@+id/btnTutor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_card_guru"/>
+
+                <TextView
+                    android:id="@+id/tvPecs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Picture Exchange Communication System"
+                    android:layout_below="@id/btnTutor"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:layout_marginLeft="8dp"/>
+
+                <ImageView
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvPecs"
+                    android:id="@+id/btnPecs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_card_pecs"
+                    android:elevation="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtikel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bacaan yang perlu diketahui"
+                    android:layout_below="@id/btnPecs"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:fontFamily="@font/sourcesanspro_semibold"
+                    android:layout_marginLeft="8dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_below="@id/tvArtikel"
+                    android:id="@+id/list_artikel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </RelativeLayout>
+
+        </ScrollView>
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#fff"
+            app:menu="@menu/menu_nav"
+            app:labelVisibilityMode="unlabeled"/>
+
+    </RelativeLayout>
+</RelativeLayout>
