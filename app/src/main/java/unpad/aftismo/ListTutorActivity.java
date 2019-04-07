@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.Toast;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
@@ -145,5 +146,24 @@ public class ListTutorActivity extends AppCompatActivity {
         localDataSource = tutors;
         adapter = new TutorAdapter(this, tutors);
         recyclerSearch.setAdapter(adapter);
+    }
+
+    //Exit when BACK buton clicked
+    boolean isBackButtonClicked = false;
+
+    @Override
+    public void onBackPressed() {
+        if(isBackButtonClicked) {
+            super.onBackPressed();
+            return;
+        }
+        this.isBackButtonClicked = true;
+        Toast.makeText(this, "Please click BACK again to exit this application", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPostResume() {
+        isBackButtonClicked = false;
+        super.onResume();
     }
 }

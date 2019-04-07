@@ -105,6 +105,17 @@
 
                 </android.support.v7.widget.RecyclerView>
 
+                <Button
+                    android:id="@+id/logoutBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/list_artikel"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#fff"
+                    android:layout_marginTop="8dp"
+                    android:text="Log Out"/>
+
             </RelativeLayout>
 
         </ScrollView>

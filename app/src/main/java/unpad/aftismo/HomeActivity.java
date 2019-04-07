@@ -1,15 +1,21 @@
 package unpad.aftismo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.facebook.accountkit.AccountKit;
 
 import java.util.List;
 
@@ -28,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
     ApiInterface mService;
     CompositeDisposable compositeDisposable;
     RecyclerView listArtikel;
+    Button logoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,38 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, ListTutorActivity.class));
+            }
+        });
+
+        logoutBtn = findViewById(R.id.logoutBtn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setTitle("Exit Application");
+                builder.setMessage("Do you want to exit this application?");
+
+                builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        AccountKit.logOut();
+
+                        //Clear all activities
+                        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                builder.setPositiveButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.show();
             }
         });
 
@@ -72,5 +111,24 @@ public class HomeActivity extends AppCompatActivity {
     private void displayArtikelList(List<Artikel> artikels) {
         ArtikelAdapter adapter = new ArtikelAdapter(this, artikels);
         listArtikel.setAdapter(adapter);
+    }
+
+    //Exit when BACK buton clicked
+    boolean isBackButtonClicked = false;
+
+    @Override
+    public void onBackPressed() {
+        if(isBackButtonClicked) {
+            super.onBackPressed();
+            return;
+        }
+        this.isBackButtonClicked = true;
+        Toast.makeText(this, "Please click BACK again to exit this application", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        isBackButtonClicked = false;
+        super.onResume();
     }
 }
