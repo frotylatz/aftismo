@@ -16,9 +16,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.accountkit.AccountKit;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -47,7 +50,15 @@ public class HomeActivity extends AppCompatActivity {
         compositeDisposable = new CompositeDisposable();
         mService = Common.getApi();
 
-        BottomNavigationView bottomNavigationView= findViewById(R.id.navigation);
+        JCVideoPlayerStandard jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.videoplayer);
+        jcVideoPlayerStandard.setUp("http://coinbkt.com/aftismo/pecs.mp4"
+                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "");
+
+        Picasso.get()
+                .load("https://i.ytimg.com/vi/Hs-412lhXb0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDY4Hkyd5ZM6BWMLbObRt4FfK5_0g")
+                .into(jcVideoPlayerStandard.thumbImageView);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
 
         ivTutor = findViewById(R.id.btnTutor);
         ivTutor.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +133,9 @@ public class HomeActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
+        else if (JCVideoPlayer.backPress()) {
+            return;
+        }
         this.isBackButtonClicked = true;
         Toast.makeText(this, "Please click BACK again to exit this application", Toast.LENGTH_SHORT).show();
     }
@@ -131,4 +145,11 @@ public class HomeActivity extends AppCompatActivity {
         isBackButtonClicked = false;
         super.onResume();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
+    }
+
 }

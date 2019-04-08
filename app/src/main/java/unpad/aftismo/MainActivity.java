@@ -45,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 1000;
     ApiInterface mService;
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mService = Common.getApi();
-
 
         btnContinue = findViewById(R.id.btnContinue);
         btnContinue.setOnClickListener(new View.OnClickListener() {

@@ -148,22 +148,4 @@ public class ListTutorActivity extends AppCompatActivity {
         recyclerSearch.setAdapter(adapter);
     }
 
-    //Exit when BACK buton clicked
-    boolean isBackButtonClicked = false;
-
-    @Override
-    public void onBackPressed() {
-        if(isBackButtonClicked) {
-            super.onBackPressed();
-            return;
-        }
-        this.isBackButtonClicked = true;
-        Toast.makeText(this, "Please click BACK again to exit this application", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onPostResume() {
-        isBackButtonClicked = false;
-        super.onResume();
-    }
 }

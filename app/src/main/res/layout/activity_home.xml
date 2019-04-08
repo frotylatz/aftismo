@@ -59,7 +59,7 @@
                     android:layout_marginTop="4dp"
                     android:layout_below="@id/tvTutor"
                     android:id="@+id/btnTutor"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_card_guru"/>
 
@@ -79,18 +79,27 @@
                     android:layout_marginTop="4dp"
                     android:layout_below="@id/tvPecs"
                     android:id="@+id/btnPecs"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_card_pecs"
                     android:elevation="4dp"/>
 
+                <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+                    android:layout_below="@id/btnPecs"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/videoplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
                 <TextView
+                    android:layout_below="@id/videoplayer"
                     android:id="@+id/tvArtikel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bacaan yang perlu diketahui"
-                    android:layout_below="@id/btnPecs"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:textSize="16sp"
                     android:textColor="@color/colorPrimaryText"
                     android:fontFamily="@font/sourcesanspro_semibold"

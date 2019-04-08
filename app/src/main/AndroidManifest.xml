@@ -32,7 +32,9 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".RegisterAcitivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ListTutorActivity"/>
     </application>
 
