@@ -63,12 +63,12 @@
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
+        android:id="@+id/navigationtutor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#fff"
-        app:menu="@menu/menu_nav"
+        app:menu="@menu/navigation"
         app:labelVisibilityMode="unlabeled"/>
 
 </RelativeLayout>

@@ -114,28 +114,18 @@
 
                 </android.support.v7.widget.RecyclerView>
 
-                <Button
-                    android:id="@+id/logoutBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/list_artikel"
-                    android:layout_centerHorizontal="true"
-                    android:background="@color/colorPrimary"
-                    android:textColor="#fff"
-                    android:layout_marginTop="8dp"
-                    android:text="Log Out"/>
-
             </RelativeLayout>
 
         </ScrollView>
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigation"
+
+        <include
+            android:id="@id/navigation"
+            layout="@layout/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:background="#fff"
-            app:menu="@menu/menu_nav"
-            app:labelVisibilityMode="unlabeled"/>
+            />
 
     </RelativeLayout>
 </RelativeLayout>

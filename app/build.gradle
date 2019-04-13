@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -47,7 +51,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.joooonho:selectableroundedimageview:1.0.1'
     implementation 'fm.jiecao:jiecaovideoplayer:5.7'
-    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
+    implementation 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+
 
 }
 

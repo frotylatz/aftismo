@@ -4,4 +4,5 @@
     <color name="colorAccent">#55efc4</color>
     <color name="colorPrimaryText">#2d3436</color>
     <color name="colorSecondaryText">#888888</color>
+    <color name="colorItemNotSelected">#979797</color>
 </resources>

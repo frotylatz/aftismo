@@ -1,5 +1,6 @@
 package unpad.aftismo;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.accountkit.AccountKit;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -38,6 +41,8 @@ public class HomeActivity extends AppCompatActivity {
     CompositeDisposable compositeDisposable;
     RecyclerView listArtikel;
     Button logoutBtn;
+    private Context mContext = HomeActivity.this;
+    private static final int ACTIVITY_NUM = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setUpBottomNavigationView();
 
         compositeDisposable = new CompositeDisposable();
         mService = Common.getApi();
@@ -58,8 +65,6 @@ public class HomeActivity extends AppCompatActivity {
                 .load("https://i.ytimg.com/vi/Hs-412lhXb0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDY4Hkyd5ZM6BWMLbObRt4FfK5_0g")
                 .into(jcVideoPlayerStandard.thumbImageView);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
-
         ivTutor = findViewById(R.id.btnTutor);
         ivTutor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,43 +73,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        logoutBtn = findViewById(R.id.logoutBtn);
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-                builder.setTitle("Exit Application");
-                builder.setMessage("Do you want to exit this application?");
-
-                builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        AccountKit.logOut();
-
-                        //Clear all activities
-                        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
-
-                builder.setPositiveButton("CANCEL", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-
-                builder.show();
-            }
-        });
-
         listArtikel = findViewById(R.id.list_artikel);
         listArtikel.setLayoutManager(new LinearLayoutManager(this));
         listArtikel.setHasFixedSize(true);
 
         getArtikel();
+    }
+
+    private void setUpBottomNavigationView() {
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.navigation);
+        Common.setupBottomNavigationView(bottomNavigationViewEx);
+        Common.enableNavigation(mContext, bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
     }
 
     private void getArtikel() {
@@ -147,7 +129,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
     }
