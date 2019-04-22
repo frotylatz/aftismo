@@ -53,6 +53,7 @@
 
         <Button
             android:background="@drawable/mybutton"
+            android:id="@+id/btnBook"
             android:layout_width="73dp"
             android:layout_height="21dp"
             android:layout_alignParentRight="true"

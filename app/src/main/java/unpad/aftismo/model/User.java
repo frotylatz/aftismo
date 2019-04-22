@@ -1,10 +1,19 @@
 package unpad.aftismo.model;
 
 public class User {
-    private String phone;
-    private String address;
-    private String name;
-    private String error_msg;
+    public String phone;
+    public String address;
+    public String name;
+    public String error_msg;
+    public String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getPhone() {
         return phone;

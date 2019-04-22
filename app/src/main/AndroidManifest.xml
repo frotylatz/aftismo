@@ -38,6 +38,11 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ListTutorActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".BookTutorActivity" />
+        <activity android:name=".BookingActivity" />
+        <activity android:name=".adapter.ArtikelActivity" />
+        <activity android:name=".PecsActivity"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package unpad.aftismo.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import unpad.aftismo.R;
 public class TutorViewHolder extends RecyclerView.ViewHolder{
     CircleImageView imgTutor;
     TextView namaTutor, hargaTutor, lokasiTutor;
+    Button btnBook;
 
     public TutorViewHolder (View itemView){
         super(itemView);
@@ -19,6 +21,7 @@ public class TutorViewHolder extends RecyclerView.ViewHolder{
         namaTutor = itemView.findViewById(R.id.namaTutor);
         hargaTutor = itemView.findViewById(R.id.hargaTutor);
         lokasiTutor = itemView.findViewById(R.id.lokasiTutor);
+        btnBook = itemView.findViewById(R.id.btnBook);
     }
 
 }

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookingActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tvToolbar"
+            android:text="booking"
+            android:textColor="@color/colorPrimary"
+            android:paddingTop="14dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/lifesavers_bold"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailBookContainer"
+        android:background="#fff"
+        android:layout_below="@id/toolbar"
+        android:padding="16dp"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTanggal"
+            android:text="Tanggal"
+            android:textColor="@color/colorPrimaryText"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTanggal"
+            android:id="@+id/genAgeContainer"
+            android:orientation="horizontal">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="HH/BB/TTT"
+                android:textSize="16sp"
+                android:layout_marginRight="16dp"
+                android:id="@+id/etTanggal"
+                android:editable="false"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mybutton2"
+                android:id="@+id/buttonTanggal"
+                android:text="Pilih tanggal"
+                android:textColor="@color/colorPrimary"
+                android:drawableLeft="@drawable/ic_tanggal"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWaktu"
+            android:layout_below="@id/genAgeContainer"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Waktu"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/tvWaktu"
+            android:id="@+id/llWaktu"
+            android:visibility="gone">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox"
+                android:buttonTint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08.00 - 09.00"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_toRightOf="@id/checkbox"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btnSelanjutnya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_button"
+        android:textColor="#fff"
+        android:layout_marginTop="8dp"
+        android:text="Booking Sekarang"
+        style="?android:borderlessButtonStyle"
+        />
+</RelativeLayout>

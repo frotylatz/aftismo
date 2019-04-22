@@ -26,7 +26,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         updateNavigationBarState();
     }
 
-    // Remove inter-activity transition to avoid screen tossing on tapping bottom navigation items
     @Override
     public void onPause() {
         super.onPause();

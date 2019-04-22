@@ -16,7 +16,7 @@
 
             <TextView
                 android:id="@+id/tvToolbar"
-                android:text="aftismo+"
+                android:text="guru+"
                 android:textColor="@color/colorPrimary"
                 android:paddingTop="14dp"
                 android:textStyle="bold"

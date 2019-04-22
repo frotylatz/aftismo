@@ -1,11 +1,7 @@
 package unpad.aftismo;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.facebook.accountkit.AccountKit;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.squareup.picasso.Picasso;
 
@@ -36,7 +31,7 @@ import unpad.aftismo.utils.Common;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageView ivTutor;
+    ImageView ivTutor, ivPecs;
     ApiInterface mService;
     CompositeDisposable compositeDisposable;
     RecyclerView listArtikel;
@@ -67,6 +62,14 @@ public class HomeActivity extends AppCompatActivity {
 
         ivTutor = findViewById(R.id.btnTutor);
         ivTutor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ListTutorActivity.class));
+            }
+        });
+
+        ivPecs = findViewById(R.id.btnPecs);
+        ivPecs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, ListTutorActivity.class));

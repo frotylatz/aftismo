@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
+    android:id="@+id/swipe_to_refresh"
     android:background="#f2f2f2">
 
     <RelativeLayout
@@ -56,7 +57,7 @@
                 android:id="@+id/tvUbah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UBAH"
+                android:text="EDIT"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:layout_marginRight="4dp"
@@ -72,7 +73,8 @@
                 android:textSize="16sp"
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_below="@id/tvNama"
-                android:layout_marginLeft="4dp"/>
+                android:layout_marginLeft="4dp"
+                />
 
             <TextView
                 android:id="@+id/alamat"
@@ -96,7 +98,21 @@
                 android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_below="@id/alamat"
                 android:layout_marginLeft="4dp"
-                android:layout_marginBottom="18dp"/>
+                android:layout_marginBottom="18dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvAlamatAda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum menyimpan alamat"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:layout_below="@id/alamat"
+                android:layout_marginLeft="4dp"
+                android:layout_marginBottom="18dp"
+                android:visibility="gone"/>
 
         </RelativeLayout>
 
@@ -112,7 +128,7 @@
             android:text="Log Out"
             style="?android:borderlessButtonStyle"/>
 
-            </RelativeLayout>
+    </RelativeLayout>
 
         <include
             android:id="@id/navigation"

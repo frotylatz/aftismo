@@ -35,11 +35,11 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="7d7d7d" />
-                            <entry key="height" value="106" />
-                            <entry key="outputName" value="ic_card_guru" />
+                            <entry key="height" value="54" />
+                            <entry key="outputName" value="ic_cardpecs_3" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\UNPAD\Materi\Semester 6\PPL\Project\app\src\main\res\drawable\card_guru+.svg" />
-                            <entry key="width" value="356" />
+                            <entry key="sourceFile" value="D:\UNPAD\Materi\Semester 6\PPL\Project\app\src\main\res\drawable\cardpecs_3.svg" />
+                            <entry key="width" value="54" />
                           </map>
                         </option>
                       </PersistentState>

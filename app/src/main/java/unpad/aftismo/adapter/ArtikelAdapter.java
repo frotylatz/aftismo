@@ -1,6 +1,7 @@
 package unpad.aftismo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import unpad.aftismo.BookTutorActivity;
 import unpad.aftismo.R;
 import unpad.aftismo.model.Artikel;
 
@@ -39,6 +41,14 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelViewHolder> {
                 .into(artikelViewHolder.imgArtikel);
 
         artikelViewHolder.judulArtikel.setText(artikelList.get(i).Judul);
+        artikelViewHolder.judulArtikel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ArtikelActivity.class);
+                intent.putExtra("link", artikelList.get(i).Link);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

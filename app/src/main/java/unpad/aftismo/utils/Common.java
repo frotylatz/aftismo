@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import unpad.aftismo.HomeActivity;
+import unpad.aftismo.PecsActivity;
 import unpad.aftismo.ProfileActivity;
 import unpad.aftismo.R;
 import unpad.aftismo.model.User;
@@ -46,6 +47,11 @@ public class Common {
                     case R.id.navigation_akun:
                         Intent intent2 = new Intent(context, ProfileActivity.class);
                         context.startActivity(intent2);
+                        break;
+
+                    case R.id.navigation_pecs:
+                        Intent intent3 = new Intent(context, PecsActivity.class);
+                        context.startActivity(intent3);
                         break;
                 }
 
