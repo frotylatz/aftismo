@@ -1,5 +1,6 @@
 package unpad.aftismo.retrofit;
 
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -55,4 +56,13 @@ public interface ApiInterface {
                                  @Field("user_phone") String user_phone,
                                  @Field("book_date") String book_date,
                                  @Field("book_time") String book_time);
+
+    @GET("tutor/getbook.php")
+    Observable<List<BookResult>> getAllBook();
+
+    @FormUrlEncoded
+    @POST("updatetoken.php")
+    Call<String> updateToken(@Field("phone") String phone,
+                             @Field("token") String token,
+                             @Field("isServerToken") String isServerToken);
 }

@@ -56,31 +56,10 @@ public class ListTutorActivity extends AppCompatActivity {
         recyclerSearch.setHasFixedSize(true);
 
         searchBar = findViewById(R.id.searchBar);
-        
+
         loadAllTutor();
 
         searchBar.setCardViewElevation(8);
-        /*searchBar.addTextChangeListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                List<String> suggest = new ArrayList<>();
-                for(String search:suggestList){
-                    if(search.toLowerCase().contains(searchBar.getText().toLowerCase()))
-                        suggest.add(search);
-                }
-                searchBar.setLastSuggestions(suggest);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });*/
         searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
@@ -144,9 +123,9 @@ public class ListTutorActivity extends AppCompatActivity {
     }
 
     private void displayTutor(List<Tutor> tutors) {
+        int i = tutors.size();
         localDataSource = tutors;
         adapter = new TutorAdapter(this, tutors);
         recyclerSearch.setAdapter(adapter);
     }
-
 }

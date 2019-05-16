@@ -6,5 +6,6 @@ public class Tutor {
     public String Lokasi;
     public String Picture;
     public String Price;
+    public String Availability;
 
 }

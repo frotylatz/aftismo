@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,10 @@ import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
 import com.facebook.accountkit.ui.ThemeUIManager;
 import com.facebook.accountkit.ui.UIManager;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -84,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                                                         //if User already exist, just start new activity
                                                         alertDialog.dismiss();
                                                         Common.currentUser = response.body();
+
+                                                        updateTokenToServer();
                                                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                                         finish();
                                                     }
@@ -167,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                                 Common.currentUser = response.body();
 
+                                                                updateTokenToServer();
                                                                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                                                 finish();
                                                             }
@@ -236,5 +244,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         isBackButtonClicked = false;
         super.onResume();
+    }
+
+    private void updateTokenToServer() {
+        FirebaseInstanceId.getInstance()
+                .getInstanceId()
+                .addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        ApiInterface mService = Common.getApi();
+                        mService.updateToken(Common.currentUser.getPhone(), instanceIdResult.getToken(), "0")
+                                .enqueue(new Callback<String>() {
+                                    @Override
+                                    public void onResponse(Call<String> call, Response<String> response) {
+                                        Log.d("DEBUG", response.toString());
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<String> call, Throwable t) {
+                                        Log.d("DEBUG",t.getMessage());
+                                    }
+                                });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MainActivity.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 }

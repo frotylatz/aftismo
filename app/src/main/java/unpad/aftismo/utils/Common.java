@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import unpad.aftismo.HistoryActivity;
 import unpad.aftismo.HomeActivity;
 import unpad.aftismo.PecsActivity;
 import unpad.aftismo.ProfileActivity;
@@ -53,10 +54,30 @@ public class Common {
                         Intent intent3 = new Intent(context, PecsActivity.class);
                         context.startActivity(intent3);
                         break;
+
+                    case R.id.navigation_history:
+                        Intent intent4 = new Intent(context, HistoryActivity.class);
+                        context.startActivity(intent4);
+                        break;
                 }
 
                 return false;
             }
         });
+    }
+
+    public static String convertCodeToStatus(int book_Status){
+        switch (book_Status){
+            case 0:
+                return "Waiting";
+            case 1:
+                return "Accepted";
+            case 2:
+                return "Finished";
+            case -1:
+                return "Rejected";
+            default:
+                return "Error";
+        }
     }
 }

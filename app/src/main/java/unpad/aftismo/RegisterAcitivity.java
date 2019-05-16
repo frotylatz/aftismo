@@ -1,13 +1,17 @@
 package unpad.aftismo;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import dmax.dialog.SpotsDialog;
@@ -60,6 +64,8 @@ public class RegisterAcitivity extends AppCompatActivity {
                                 if(TextUtils.isEmpty(user.getError_msg())){
                                     Toast.makeText(RegisterAcitivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
                                     Common.currentUser = response.body();
+
+                                    updateTokenToServer();
                                     //Start HomeActivity
                                     startActivity(new Intent(RegisterAcitivity.this, MainActivity.class));
                                     finish();
@@ -75,5 +81,34 @@ public class RegisterAcitivity extends AppCompatActivity {
         });
     }
 
+    private void updateTokenToServer() {
+        FirebaseInstanceId.getInstance()
+                .getInstanceId()
+                .addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        ApiInterface mService = Common.getApi();
+                        mService.updateToken(Common.currentUser.getPhone(), instanceIdResult.getToken(), "0")
+                                .enqueue(new Callback<String>() {
+                                    @Override
+                                    public void onResponse(Call<String> call, Response<String> response) {
+                                        Log.d("DEBUG", response.toString());
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<String> call, Throwable t) {
+                                        Log.d("DEBUG",t.getMessage());
+                                    }
+                                });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(RegisterAcitivity.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
 
 }

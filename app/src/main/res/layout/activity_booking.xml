@@ -73,6 +73,13 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/genAgeContainer"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/llWaktu">
         <TextView
             android:layout_marginTop="28dp"
             android:layout_width="wrap_content"
@@ -84,29 +91,47 @@
             android:textColor="@color/colorPrimaryText"
             android:textSize="12sp" />
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@id/tvWaktu"
-            android:id="@+id/llWaktu"
-            android:visibility="gone">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/checkbox"
-                android:buttonTint="@color/colorPrimary"
-                />
+            android:layout_below="@id/tvWaktu">
 
-            <TextView
+            <RadioButton
+                android:id="@+id/radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="08.00 - 09.00"
                 android:textColor="@color/colorPrimaryText"
-                android:layout_toRightOf="@id/checkbox"/>
+                android:checked="true"
+                android:textSize="16dp"/>
 
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11.00 - 12.00"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="16dp"/>
+
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16.00 - 17.00"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="16dp"/>
+
+            <RadioButton
+                android:id="@+id/radio4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19.00 - 20.00"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="16dp"/>
+
+        </RadioGroup>
         </LinearLayout>
-
 
     </RelativeLayout>
 

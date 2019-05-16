@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -33,6 +35,7 @@ public class BookingActivity extends AppCompatActivity {
     Button btnTanggal, btnSelanjutnya;
     MaterialEditText etTanggal;
     LinearLayout ll;
+    RadioGroup radioWaktu;
     String nama, hargatok;
     final Calendar myCalendar = Calendar.getInstance();
     CompositeDisposable compositeDisposable;
@@ -50,6 +53,7 @@ public class BookingActivity extends AppCompatActivity {
         etTanggal = findViewById(R.id.etTanggal);
         ll = findViewById(R.id.llWaktu);
         btnTanggal = findViewById(R.id.buttonTanggal);
+        radioWaktu = findViewById(R.id.radioGroup);
 
         Intent i = getIntent();
         nama = i.getStringExtra("nama");
@@ -85,14 +89,22 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void placeOrder() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        int radioButtonID = radioWaktu.getCheckedRadioButtonId();
+        View radioButton = radioWaktu.findViewById(radioButtonID);
+        int idx = radioWaktu.indexOfChild(radioButton);
+
+        RadioButton r = (RadioButton) radioWaktu.getChildAt(idx);
+
         //Submit Order
         mService.submitOrder(Float.valueOf(hargatok),nama,Common.currentUser.getAddress(),Common.currentUser.getName(),
-                Common.currentUser.getPhone(),myCalendar.getTime().toString(),"09.00")
+                Common.currentUser.getPhone(), sdf.format(myCalendar.getTime()),r.getText().toString())
                 .enqueue(new Callback<BookResult>() {
                     @Override
                     public void onResponse(Call<BookResult> call, Response<BookResult> response) {
-
                         Toast.makeText(BookingActivity.this,"Book submitted", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
 
                     @Override
