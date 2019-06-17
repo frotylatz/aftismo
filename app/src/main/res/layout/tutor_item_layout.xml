@@ -42,11 +42,111 @@
             android:textSize="12sp"/>
 
         <TextView
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/imgTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topik yang bisa diajarkan :"
+            android:textColor="@color/colorSecondaryText"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/tvTopik"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTopik"
+            android:id="@+id/skillContainer"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSkill1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:id="@+id/tvSkill2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/skillPlus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#829095"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="+3"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/skillPlus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#829095"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="+2"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/skillPlus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#829095"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="+1"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"/>
+
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/hargaTutor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:layout_below="@id/imgTutor"
+            android:layout_below="@id/skillContainer"
             android:text="Rp 250.000 / jam"
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/sourcesanspro_regular"/>

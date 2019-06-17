@@ -1,19 +1,13 @@
 package unpad.aftismo.retrofit;
 
-import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import unpad.aftismo.model.Artikel;
 import unpad.aftismo.model.BookResult;
 import unpad.aftismo.model.CheckUserResponse;
@@ -51,14 +45,17 @@ public interface ApiInterface {
     @POST("submitorder.php")
     Call<BookResult> submitOrder(@Field("book_price") float book_price,
                                  @Field("book_tutor") String book_tutor,
+                                 @Field("book_tutorloc") String book_tutorloc,
                                  @Field("book_address") String book_address,
                                  @Field("book_by") String book_by,
                                  @Field("user_phone") String user_phone,
+                                 @Field("tutor_phone") String tutor_phone,
                                  @Field("book_date") String book_date,
                                  @Field("book_time") String book_time);
 
-    @GET("tutor/getbook.php")
-    Observable<List<BookResult>> getAllBook();
+    @FormUrlEncoded
+    @POST("getbook.php")
+    Observable<List<BookResult>> getBookByStatus(@Field("user_phone") String user_phone);
 
     @FormUrlEncoded
     @POST("updatetoken.php")

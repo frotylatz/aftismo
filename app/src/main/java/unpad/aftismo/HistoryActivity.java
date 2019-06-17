@@ -51,7 +51,7 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private void loadBook() {
-        compositeDisposable.add(mService.getAllBook()
+        compositeDisposable.add(mService.getBookByStatus(Common.currentUser.getPhone())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new Consumer<List<BookResult>>() {

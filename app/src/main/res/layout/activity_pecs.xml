@@ -8,7 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarPecs"
@@ -48,51 +49,218 @@
                 android:background="@color/colorPrimary"
                 android:orientation="horizontal">
 
-
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/bottomLayout"
+            <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:paddingTop="18dp">
+                android:background="#f2f2f2">
 
-                <ImageView
-                    android:id="@+id/pecs1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:src="@drawable/cardpecs_3"/>
+                <LinearLayout
+                    android:id="@+id/bottomLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/pecs2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:src="@drawable/cardpecs_6"/>
+                    <LinearLayout
+                        android:id="@+id/pecsRow1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="18dp">
 
-                <ImageView
-                    android:id="@+id/pecs3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:gravity="center"
-                    android:src="@drawable/cardpecs_9"/>
+                        <ImageView
+                            android:id="@+id/pecs1"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_1"/>
 
-            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/pecs2"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_2"/>
 
+                        <ImageView
+                            android:id="@+id/pecs3"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_3"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pecsRow2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="18dp">
+
+                        <ImageView
+                            android:id="@+id/pecs4"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_4"/>
+
+                        <ImageView
+                            android:id="@+id/pecs5"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_6"/>
+
+                        <ImageView
+                            android:id="@+id/pecs6"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_7"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/pecsRow3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="18dp">
+
+                        <ImageView
+                            android:id="@+id/pecs7"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_8"/>
+
+                        <ImageView
+                            android:id="@+id/pecs8"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_9"/>
+
+                        <ImageView
+                            android:id="@+id/pecs9"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_10"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/pecsRow4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="18dp">
+
+                        <ImageView
+                            android:id="@+id/pecs10"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_11"/>
+
+                        <ImageView
+                            android:id="@+id/pecs11"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_12"/>
+
+                        <ImageView
+                            android:id="@+id/pecs12"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_13"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/pecsRow5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="18dp">
+
+                        <ImageView
+                            android:id="@+id/pecs13"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_14"/>
+
+                        <ImageView
+                            android:id="@+id/pecs14"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_15"/>
+
+                        <ImageView
+                            android:id="@+id/pecs15"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_16"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/pecsRow6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="18dp">
+
+                        <ImageView
+                            android:id="@+id/pecs16"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_17"/>
+
+                        <ImageView
+                            android:id="@+id/pecs17"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginRight="15dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_18"/>
+
+                        <ImageView
+                            android:id="@+id/pecs18"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:gravity="center"
+                            android:src="@drawable/cardpecs_19"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
-
 
     </RelativeLayout>
 
     <include
-        android:id="@id/navigation"
+        android:id="@+id/navigation"
         layout="@layout/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="60dp"

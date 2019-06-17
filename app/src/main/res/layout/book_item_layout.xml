@@ -5,52 +5,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     android:elevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:contentPadding="12dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:padding="8dp"
-            android:layout_marginBottom="8dp"
-            android:id="@+id/idContainer">
-            <TextView
-                android:id="@+id/bookId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="22"
-                android:textSize="20sp"
-                android:fontFamily="@font/sourcesanspro_bold"
-                android:textColor="#fff"/>
+            android:id="@+id/headerContainer">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/bookImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
 
-            <TextView
-                android:id="@+id/bookPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp 300000"
-                android:textSize="18sp"
-                android:layout_alignParentRight="true"
-                android:fontFamily="@font/sourcesanspro_semibold"
-                android:textColor="#fff"/>
-
-        </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idContainer"
-            android:orientation="vertical">
             <TextView
                 android:id="@+id/bookName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/bookImg"
+                android:layout_marginLeft="8dp"
                 android:text="Ana Budiman"
                 android:textSize="20sp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/sourcesanspro_semibold"
+                android:fontFamily="@font/sourcesanspro_bold"
                 android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:id="@+id/bookLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/bookImg"
+                android:layout_marginLeft="8dp"
+                android:layout_below="@id/bookName"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="Pondok Kopi"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:id="@+id/datetimeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/headerContainer">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calendar"
+                android:layout_gravity="center" />
             <TextView
                 android:id="@+id/bookDate"
                 android:layout_width="wrap_content"
@@ -61,6 +66,12 @@
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/sourcesanspro_italic"
                 android:textColor="@color/colorPrimaryText"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_time"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"/>
             <TextView
                 android:id="@+id/bookTime"
                 android:layout_width="wrap_content"
@@ -71,19 +82,40 @@
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/sourcesanspro_italic"
                 android:textColor="@color/colorPrimaryText"/>
-
-            <TextView
-                android:id="@+id/bookStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status: "
-                android:textSize="18sp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/sourcesanspro_italic"
-                android:textColor="@color/colorPrimaryText"/>
         </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/hr"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f2f2f2"
+            android:layout_below="@id/datetimeContainer"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@id/hr"
+            android:layout_marginTop="12dp"
+            android:text="20 April 2019, 10:10am"/>
+
+
+        <TextView
+            android:id="@+id/bookStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: "
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/hr"
+            android:fontFamily="@font/sourcesanspro_italic"
+            android:textColor="@color/colorPrimaryText"/>
+
     </RelativeLayout>
+
+
+
 
 </android.support.v7.widget.CardView>

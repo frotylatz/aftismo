@@ -185,6 +185,116 @@
                 android:textSize="14sp"/>
 
         </LinearLayout>
+        
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2"
+            android:id="@+id/hr"
+            android:layout_below="@id/certContainer"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topik yang bisa diajarkan :"
+            android:textColor="@color/colorSecondaryText"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/tvTopik"/>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTopik"
+            app:flexWrap="wrap"
+            >
+
+            <TextView
+                android:id="@+id/tvSkill1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvSkill2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvSkill3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvSkill4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvSkill5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="14sp"
+                android:text="Bahasa Indonesia"
+                android:background="@drawable/skill_background"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="6dp"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
     </RelativeLayout>
 
     <Button

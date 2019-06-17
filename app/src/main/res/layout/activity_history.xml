@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/tvToolbar"
-            android:text="history"
+            android:text="riwayat"
             android:textColor="@color/colorPrimary"
             android:layout_marginRight="15dp"
             android:paddingTop="14dp"

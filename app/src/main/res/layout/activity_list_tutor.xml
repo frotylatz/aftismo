@@ -46,8 +46,7 @@
                 app:mt_speechMode="false"
                 app:mt_hint="Cari tutor berdasarkan lokasi"
                 app:mt_placeholder="Cari tutor"
-                app:mt_placeholderColor="@color/colorSecondaryText"
-                app:mt_searchIconDrawable="@drawable/ic_loc"
+                app:mt_placeholderColor="@color/colorPrimaryText"
                 app:mt_searchIconUseTint="false">
 
             </com.mancj.materialsearchbar.MaterialSearchBar>
@@ -57,18 +56,9 @@
                 android:id="@+id/list_tutor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:paddingTop="4dp">
 
             </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigationtutor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#fff"
-        app:menu="@menu/navigation"
-        app:labelVisibilityMode="unlabeled"/>
 
 </RelativeLayout>

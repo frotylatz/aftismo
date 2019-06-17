@@ -11,7 +11,7 @@ import unpad.aftismo.R;
 
 public class TutorViewHolder extends RecyclerView.ViewHolder{
     CircleImageView imgTutor;
-    TextView namaTutor, hargaTutor, lokasiTutor;
+    TextView namaTutor, hargaTutor, lokasiTutor, tvSkill1, tvSkill2, skillPlus3, skillPlus2, skillPlus1;
     Button btnBook;
 
     public TutorViewHolder (View itemView){
@@ -22,6 +22,11 @@ public class TutorViewHolder extends RecyclerView.ViewHolder{
         hargaTutor = itemView.findViewById(R.id.hargaTutor);
         lokasiTutor = itemView.findViewById(R.id.lokasiTutor);
         btnBook = itemView.findViewById(R.id.btnBook);
+        tvSkill1 = itemView.findViewById(R.id.tvSkill1);
+        tvSkill2 = itemView.findViewById(R.id.tvSkill2);
+        skillPlus1 = itemView.findViewById(R.id.skillPlus1);
+        skillPlus2 = itemView.findViewById(R.id.skillPlus2);
+        skillPlus3 = itemView.findViewById(R.id.skillPlus3);
     }
 
 }

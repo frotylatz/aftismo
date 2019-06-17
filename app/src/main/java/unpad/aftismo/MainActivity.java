@@ -26,11 +26,6 @@ import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
 import com.facebook.accountkit.ui.ThemeUIManager;
 import com.facebook.accountkit.ui.UIManager;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -90,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                                                         alertDialog.dismiss();
                                                         Common.currentUser = response.body();
 
-                                                        updateTokenToServer();
+                                                        //updateTokenToServer();
                                                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                                         finish();
                                                     }
@@ -174,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                                 Common.currentUser = response.body();
 
-                                                                updateTokenToServer();
+                                                               // updateTokenToServer();
                                                                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                                                 finish();
                                                             }
@@ -244,35 +239,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         isBackButtonClicked = false;
         super.onResume();
-    }
-
-    private void updateTokenToServer() {
-        FirebaseInstanceId.getInstance()
-                .getInstanceId()
-                .addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
-                    @Override
-                    public void onSuccess(InstanceIdResult instanceIdResult) {
-                        ApiInterface mService = Common.getApi();
-                        mService.updateToken(Common.currentUser.getPhone(), instanceIdResult.getToken(), "0")
-                                .enqueue(new Callback<String>() {
-                                    @Override
-                                    public void onResponse(Call<String> call, Response<String> response) {
-                                        Log.d("DEBUG", response.toString());
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<String> call, Throwable t) {
-                                        Log.d("DEBUG",t.getMessage());
-                                    }
-                                });
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MainActivity.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
     }
 }

@@ -80,24 +80,44 @@ public class ProfileActivity extends AppCompatActivity {
             builder.show();
         });
 
+        mService = Common.getApi();
+
         tvNama = findViewById(R.id.tvNama);
         tvNomorHp = findViewById(R.id.tvNomorHp);
         tvAlamatAda = findViewById(R.id.tvAlamatAda);
         tvAlamat = findViewById(R.id.tvAlamat);
         tvUbah = findViewById(R.id.tvUbah);
-        tvUbah.setOnClickListener(view -> startActivity(new Intent(ProfileActivity.this, EditProfileActivity.class)));
+        tvUbah.setOnClickListener(view -> {
+            startActivity(new Intent(ProfileActivity.this, EditProfileActivity.class));
+        });
 
-        tvNama.setText(Common.currentUser.getName());
-        tvNomorHp.setText(Common.currentUser.getPhone());
-        if (!Common.currentUser.getAddress().equals("")) {
-            tvAlamatAda.setText(Common.currentUser.getAddress());
-            tvAlamatAda.setVisibility(View.VISIBLE);
-            tvAlamat.setVisibility(View.INVISIBLE);
-        } else {
-            tvAlamatAda.setVisibility(View.INVISIBLE);
-            tvAlamat.setVisibility(View.VISIBLE);
-        }
-            }
+        setProfileDetail();
+    }
+
+    private void setProfileDetail(){
+        mService.getUserInformation(Common.currentUser.getPhone())
+                .enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        Common.currentUser = response.body();
+                        tvNama.setText(Common.currentUser.getName());
+                        tvNomorHp.setText(Common.currentUser.getPhone());
+                        if (!Common.currentUser.getAddress().equals("")) {
+                            tvAlamatAda.setText(Common.currentUser.getAddress());
+                            tvAlamatAda.setVisibility(View.VISIBLE);
+                            tvAlamat.setVisibility(View.INVISIBLE);
+                        } else {
+                            tvAlamatAda.setVisibility(View.INVISIBLE);
+                            tvAlamat.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Toast.makeText(ProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
     private void setUpBottomNavigationView() {
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.navigation);
@@ -110,6 +130,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     //Exit when BACK buton clicked
     boolean isBackButtonClicked = false;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setProfileDetail();
+    }
 
     @Override
     public void onBackPressed() {

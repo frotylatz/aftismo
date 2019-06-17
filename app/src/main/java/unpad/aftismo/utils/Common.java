@@ -1,5 +1,6 @@
 package unpad.aftismo.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import unpad.aftismo.HomeActivity;
 import unpad.aftismo.PecsActivity;
 import unpad.aftismo.ProfileActivity;
 import unpad.aftismo.R;
+import unpad.aftismo.model.Tutor;
 import unpad.aftismo.model.User;
 import unpad.aftismo.retrofit.ApiClient;
 import unpad.aftismo.retrofit.ApiInterface;
@@ -22,6 +24,7 @@ public class Common {
     private static final String BASE_URL = "http://coinbkt.com/aftismo/";
 
     public static User currentUser = null;
+    public static Tutor currentTutor;
 
     public static ApiInterface getApi(){
         return ApiClient.getApiClient(BASE_URL).create(ApiInterface.class);
@@ -48,16 +51,19 @@ public class Common {
                     case R.id.navigation_akun:
                         Intent intent2 = new Intent(context, ProfileActivity.class);
                         context.startActivity(intent2);
+                        ((Activity) context).finish();
                         break;
 
                     case R.id.navigation_pecs:
                         Intent intent3 = new Intent(context, PecsActivity.class);
                         context.startActivity(intent3);
+                        ((Activity) context).finish();
                         break;
 
                     case R.id.navigation_history:
                         Intent intent4 = new Intent(context, HistoryActivity.class);
                         context.startActivity(intent4);
+                        ((Activity) context).finish();
                         break;
                 }
 
@@ -74,7 +80,7 @@ public class Common {
                 return "Accepted";
             case 2:
                 return "Finished";
-            case -1:
+            case 3:
                 return "Rejected";
             default:
                 return "Error";

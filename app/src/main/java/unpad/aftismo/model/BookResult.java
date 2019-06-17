@@ -4,21 +4,40 @@ public class BookResult {
     private long book_id;
     private int book_status;
     private float book_price;
-    private String book_tutor, book_address, book_by, book_date, book_time, user_phone;
+    private String book_tutor, book_address, book_by, book_tutorloc, book_date, book_time, user_phone, tutor_phone;
 
     public BookResult() {
     }
 
-    public BookResult(long book_id, int book_status, float book_price, String book_tutor, String book_address, String book_by, String book_date, String book_time, String user_phone) {
+    public String getBook_tutorloc() {
+        return book_tutorloc;
+    }
+
+    public void setBook_tutorloc(String book_tutorloc) {
+        this.book_tutorloc = book_tutorloc;
+    }
+
+    public BookResult(long book_id, int book_status, float book_price, String book_tutor, String book_address, String book_by, String book_tutorloc, String book_date, String book_time, String user_phone, String tutor_phone) {
+
         this.book_id = book_id;
         this.book_status = book_status;
         this.book_price = book_price;
         this.book_tutor = book_tutor;
         this.book_address = book_address;
         this.book_by = book_by;
+        this.book_tutorloc = book_tutorloc;
         this.book_date = book_date;
         this.book_time = book_time;
         this.user_phone = user_phone;
+        this.tutor_phone = tutor_phone;
+    }
+
+    public String getTutor_phone() {
+        return tutor_phone;
+    }
+
+    public void setTutor_phone(String tutor_phone) {
+        this.tutor_phone = tutor_phone;
     }
 
     public long getBook_id() {

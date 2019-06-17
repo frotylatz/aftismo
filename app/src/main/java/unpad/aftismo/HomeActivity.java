@@ -72,7 +72,8 @@ public class HomeActivity extends AppCompatActivity {
         ivPecs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, ListTutorActivity.class));
+                startActivity(new Intent(HomeActivity.this, PecsActivity.class));
+                finish();
             }
         });
 
@@ -136,5 +137,4 @@ public class HomeActivity extends AppCompatActivity {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
     }
-
 }

@@ -36,7 +36,7 @@ public class BookingActivity extends AppCompatActivity {
     MaterialEditText etTanggal;
     LinearLayout ll;
     RadioGroup radioWaktu;
-    String nama, hargatok;
+    String nama, hargatok, lokasi, gambar, tutorphone;
     final Calendar myCalendar = Calendar.getInstance();
     CompositeDisposable compositeDisposable;
     ApiInterface mService;
@@ -58,6 +58,8 @@ public class BookingActivity extends AppCompatActivity {
         Intent i = getIntent();
         nama = i.getStringExtra("nama");
         hargatok = i.getStringExtra("hargatok");
+        lokasi = i.getStringExtra("lokasi");
+        tutorphone = i.getStringExtra("tutorphone");
 
         btnTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,8 +100,8 @@ public class BookingActivity extends AppCompatActivity {
         RadioButton r = (RadioButton) radioWaktu.getChildAt(idx);
 
         //Submit Order
-        mService.submitOrder(Float.valueOf(hargatok),nama,Common.currentUser.getAddress(),Common.currentUser.getName(),
-                Common.currentUser.getPhone(), sdf.format(myCalendar.getTime()),r.getText().toString())
+        mService.submitOrder(Float.valueOf(hargatok),nama,lokasi,Common.currentUser.getAddress(),Common.currentUser.getName(),
+                Common.currentUser.getPhone(), tutorphone, sdf.format(myCalendar.getTime()),r.getText().toString())
                 .enqueue(new Callback<BookResult>() {
                     @Override
                     public void onResponse(Call<BookResult> call, Response<BookResult> response) {

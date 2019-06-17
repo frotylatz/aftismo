@@ -46,8 +46,6 @@ public class ListTutorActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationtutor);
-
         compositeDisposable = new CompositeDisposable();
         mService = Common.getApi();
 
@@ -128,4 +126,6 @@ public class ListTutorActivity extends AppCompatActivity {
         adapter = new TutorAdapter(this, tutors);
         recyclerSearch.setAdapter(adapter);
     }
+
+
 }

@@ -13,8 +13,10 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import unpad.aftismo.BookTutorActivity;
+import unpad.aftismo.ItemClickListener;
 import unpad.aftismo.R;
 import unpad.aftismo.model.Artikel;
+import unpad.aftismo.utils.Common;
 
 public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelViewHolder> {
 
@@ -41,7 +43,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelViewHolder> {
                 .into(artikelViewHolder.imgArtikel);
 
         artikelViewHolder.judulArtikel.setText(artikelList.get(i).Judul);
-        artikelViewHolder.judulArtikel.setOnClickListener(new View.OnClickListener() {
+        artikelViewHolder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ArtikelActivity.class);
