@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 import unpad.aftismo.BookTutorActivity;
+import unpad.aftismo.ItemClickListener;
 import unpad.aftismo.MainActivity;
 import unpad.aftismo.R;
 import unpad.aftismo.RegisterAcitivity;
@@ -86,7 +87,7 @@ public class TutorAdapter extends RecyclerView.Adapter<TutorViewHolder> {
             tutorViewHolder.tvSkill2.setVisibility(View.INVISIBLE);
         }
 
-        tutorViewHolder.btnBook.setOnClickListener(new View.OnClickListener() {
+        tutorViewHolder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view) {
                 showTutorDetail(i);

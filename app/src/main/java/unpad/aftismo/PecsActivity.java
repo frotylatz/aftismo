@@ -26,7 +26,7 @@ import unpad.aftismo.utils.Common;
 public class PecsActivity extends AppCompatActivity implements View.OnDragListener, View.OnLongClickListener {
 
     private static final String TAG = PecsActivity.class.getSimpleName();
-    private ImageView pecs1, pecs2, pecs3, pecs4, pecs5, pecs6, pecs7, pecs8, pecs9, pecs10, pecs11, pecs12, pecs13, pecs14, pecs15, pecs16, pecs17, pecs18;
+    private ImageView pecs1, pecs2, pecs3, pecs4, pecs5, pecs6, pecs7, pecs8, pecs9, pecs10, pecs12, pecs14, pecs16, pecs17, pecs18;
     private static final String TEXT_VIEW_TAG = "DRAG TEXT";
     private static final int ACTIVITY_NUM = 1;
     Context mContext = PecsActivity.this;
@@ -57,11 +57,8 @@ public class PecsActivity extends AppCompatActivity implements View.OnDragListen
         pecs8 = findViewById(R.id.pecs8);
         pecs9 = findViewById(R.id.pecs9);
         pecs10 = findViewById(R.id.pecs10);
-        pecs11 = findViewById(R.id.pecs11);
         pecs12 = findViewById(R.id.pecs12);
-        pecs13 = findViewById(R.id.pecs13);
         pecs14 = findViewById(R.id.pecs14);
-        pecs15 = findViewById(R.id.pecs15);
         pecs16 = findViewById(R.id.pecs16);
         pecs17 = findViewById(R.id.pecs17);
         pecs18 = findViewById(R.id.pecs18);
@@ -75,11 +72,8 @@ public class PecsActivity extends AppCompatActivity implements View.OnDragListen
         pecs8.setTag(TEXT_VIEW_TAG);
         pecs9.setTag(TEXT_VIEW_TAG);
         pecs10.setTag(TEXT_VIEW_TAG);
-        pecs11.setTag(TEXT_VIEW_TAG);
         pecs12.setTag(TEXT_VIEW_TAG);
-        pecs13.setTag(TEXT_VIEW_TAG);
         pecs14.setTag(TEXT_VIEW_TAG);
-        pecs15.setTag(TEXT_VIEW_TAG);
         pecs16.setTag(TEXT_VIEW_TAG);
         pecs17.setTag(TEXT_VIEW_TAG);
         pecs18.setTag(TEXT_VIEW_TAG);
@@ -98,18 +92,20 @@ public class PecsActivity extends AppCompatActivity implements View.OnDragListen
         pecs8.setOnLongClickListener(this);
         pecs9.setOnLongClickListener(this);
         pecs10.setOnLongClickListener(this);
-        pecs11.setOnLongClickListener(this);
         pecs12.setOnLongClickListener(this);
-        pecs13.setOnLongClickListener(this);
         pecs14.setOnLongClickListener(this);
-        pecs15.setOnLongClickListener(this);
         pecs16.setOnLongClickListener(this);
         pecs17.setOnLongClickListener(this);
         pecs18.setOnLongClickListener(this);
 
         //add or remove any layout view that you don't want to accept dragged view
         findViewById(R.id.top_layout).setOnDragListener(this);
-        findViewById(R.id.bottomLayout).setOnDragListener(this);
+        //findViewById(R.id.bottomLayout).setOnDragListener(this);
+        findViewById(R.id.pecsRow1).setOnDragListener(this);
+        findViewById(R.id.pecsRow2).setOnDragListener(this);
+        findViewById(R.id.pecsRow3).setOnDragListener(this);
+        findViewById(R.id.pecsRow4).setOnDragListener(this);
+        findViewById(R.id.pecsRow5).setOnDragListener(this);
     }
 
     @Override

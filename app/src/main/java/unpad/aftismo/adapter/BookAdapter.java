@@ -76,7 +76,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookViewHolder> {
 
                 }
             });
-        } else if (bookList.get(i).getBook_status() == 1) {
+        } else if (bookList.get(i).getBook_status() == 0) {
             bookViewHolder.setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onClick(View view) {

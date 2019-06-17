@@ -34,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar"
-            android:layout_above="@id/navigation"
             android:paddingTop="8dp"
             android:paddingRight="8dp"
             android:paddingLeft="8dp">
@@ -45,8 +44,9 @@
                 android:layout_height="wrap_content"
                 app:mt_speechMode="false"
                 app:mt_hint="Cari tutor berdasarkan lokasi"
-                app:mt_placeholder="Cari tutor"
-                app:mt_placeholderColor="@color/colorPrimaryText"
+                app:mt_hintColor="@color/colorSecondaryText"
+                app:mt_placeholder="Klik untuk mencari"
+                app:mt_placeholderColor="@color/colorSecondaryText"
                 app:mt_searchIconUseTint="false">
 
             </com.mancj.materialsearchbar.MaterialSearchBar>
